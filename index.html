@@ -1,13 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title></title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <link rel="stylesheet" href="index.css" />
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet" /> -->
+    <script type="text/babel">
+        class NavLink extends React.Component { 
+            render() { 
+                return (
+                    <a className="nav-item" href={`#${this.props.itemName}`}>{this.props.itemName}</a> 
+                ); 
+            } 
+        } 
+        
+        const Navigation = () => (
+            <nav className="navigation">
+                <img className="avatar" src="http://placehold.it/100x100" alt="avatar" />
+                <NavLink itemName="Intro" id={name} />
+                <NavLink itemName="프로젝트1" id={name} />
+                <NavLink itemName="프로젝트2" id={name} />
+            </nav>
+        ); 
+        
+        const Intro = () => (
+            <div>
+                <h1>포트폴리오</h1>
+                <div>
+                    <a href="mailto:yoon4480@naver.com">yoon4480@naver.com</a>
+                    <p>관악구총잡이</p>
+                </div>
+                <div>
+                    <h2>경력</h2>
+                    <p>데이터 컨설턴트, 백엔드 개발자</p>
+                    <h2>Let me Introduce</h2>
+                    <p>매워 배아파</p>
+                </div>
+            </div>
+        );
+
+        const Project = ({ name, time, summary, epilogue, resultsURL }) => (
+            <div className="section" id={name}>
+                <div>
+                    <h1>{name}</h1>
+                    <p>{time}</p>
+                    <div>
+                        <h2>개요</h2>
+                        <p>{summary}</p>
+                        <h2>후기</h2>
+                        <p>{epilogue}</p>
+                        <h2>결과</h2>
+                        <div>
+                            {
+                                resultsURL.map(url => (
+                                    <img src={url} alt="Project result" /> 
+                                ))
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        ); 
+        
+        const projects = [
+            {
+                name: "프로젝트1",
+                time: "2019.04 ~ 2019.05",
+                summary: "졸린 프로젝트",
+                epilogue: "자고 싶은데 잠이 안온다.",
+                resultsURL: [
+                    "http://placehold.it/200x200",
+                    "http://placehold.it/200x200",
+                    "http://placehold.it/200x200",
+                    "http://placehold.it/200x200"
+                ]
+            },
+            {
+                name: "프로젝트2",
+                time: "2019.05 ~ 2019.06",
+                summary: "졸린 프로젝트",
+                epilogue: "자고 싶은데 잠이 안온다.",
+                resultsURL: [
+                    "http://placehold.it/200x200",
+                    "http://placehold.it/200x200",
+                    "http://placehold.it/200x200",
+                    "http://placehold.it/200x200"
+                ]
+            }
+        ];        
+
+        const App = () => (
+            <div>
+                <Navigation />
+                <div className="main">
+                    <div className="column-start">
+                        <Intro />
+                        <Project {...projects[0]} />
+                        <Project {...projects[1]} />
+                    </div>
+                </div>
+            </div>
+        ); 
+        
+        ReactDOM.render(
+            <App />, 
+            document.querySelector("#root")
+        );
+    </script>
 </head>
 <body>
-    <h1>My blog</h1>
-    <p>Hello, I'm Youngwook</p>
+    <div id="root"></div>
 </body>
 </html>
