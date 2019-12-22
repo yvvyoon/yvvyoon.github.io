@@ -4,9 +4,9 @@ gems:
     - jekyll-paginate
 
 # Site settings
-title: 'MARCOLog'
+title: 'marco;log'
 description: > # this means to ignore newlines until "email:"
-    따끈따끈하다 못해 아직 못 건드리는 뜨끈한 개발자.
+    백엔드 개발자. 흡수하기 바쁜.
 
 email: yoon4480@naver.com
 #blog logo
@@ -34,13 +34,6 @@ twitter_handle: '@'
 
 # social icons and sharing options
 social:
-    - icon: instagram
-      url: https://instagram.com/yvv.y_
-      desc: Follow me on twitter
-      share_url:
-      share_title:
-      share_link:
-
     #  - icon:	facebook
     #    url:	https://facebook.com/???
     #    desc: Connect with me facebook
@@ -51,6 +44,13 @@ social:
     - icon: github
       url: https://github.com/yvvyoon
       desc: Fork me on github
+      share_url:
+      share_title:
+      share_link:
+
+    - icon: instagram
+      url: https://instagram.com/yvv.y_
+      desc: Follow me on twitter
       share_url:
       share_title:
       share_link:
