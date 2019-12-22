@@ -71,7 +71,7 @@ Jekyll 테마들은 `_posts`라는 디렉토리 아래의 마크다운 파일들
 
 지금 쓰고 있는 이 글을 바로 테스트로 올릴 거다. 하 벌써 연말이라니...
 
-`/_posts/2019-12-22-github-pages.md`
+`_posts/2019-12-22-github-pages.md`
 
 <br>
 
