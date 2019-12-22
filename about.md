@@ -1,44 +1,38 @@
 ---
 layout: page
-title: About
+title: I've experienced
 permalink: /about/
 ---
 
-### The things I've experienced.
-
-<hr>
-
-#### Back-end
-
 <br>
+
+### [Back-end]
 
 - Node.js
 - Express.js
 - Django
 - Flask
 
-#### Front-end
-
 <br>
 
-- HTML / CSS / Javascript
+### [Front-end]
+
+- HTML & CSS & Javascript
 - React.js
 - React-Native
 
 <br>
 
-#### Infrastructure
-
-<br>
+### [Infrastructure]
 
 - Docker
 - AWS
 
 <br>
 
-#### Blockchain
-
-<br.
+### [Blockchain]
 
 - Ethereum
 - Hyperledger Fabric
+
+<br>
