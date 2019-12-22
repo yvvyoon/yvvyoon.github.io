@@ -4,20 +4,20 @@ gems:
     - jekyll-paginate
 
 # Site settings
-title: 'Marcolog'
+title: 'MARCOLog'
 description: > # this means to ignore newlines until "email:"
-    따끈따끈하다 못해 뜨끈한 개발자. 아직 근성장이 더 필요한.
+    따끈따끈하다 못해 아직 못 건드리는 뜨끈한 개발자.
 
 email: yoon4480@naver.com
 #blog logo
-logo: ''
+logo: '/assets/images/IMG_1982.jpg'
 float_logo: true # true, false (default)
 
 # blog cover
 cover: '/assets/images/IMG_2325.jpg'
 
-name: 'Young-wook Yoon'
-author: 'Young-wook Yoon'
+name: 'Young-wook Yoon, Marco'
+author: 'Young-wook Yoon, Marco'
 author_image: '/assets/images/IMG_1982.jpg'
 
 paginate: 10
