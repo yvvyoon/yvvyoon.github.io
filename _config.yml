@@ -1,38 +1,63 @@
-title: Marocolog.
-description: > # this means to ignore newlines until "baseurl:"
-    Write an awesome description for your new site here. You can edit this
-    line in _config.yml. It will appear in your document head meta (for
-    Google search results) and in your feed.xml site description.
-permalink: ':title/'
-baseurl: '/yvvyoon.github.io' # the subpath of your site, e.g. /blog
-url: 'https://yvvyoon.github.io' # the base hostname & protocol for your site, e.g. http://example.com
-site-twitter: #if your site has a twitter account, enter it here
+# Build settings
+gems:
+  - jemoji
+  - jekyll-paginate
 
-# Author Settings
-author: Youngwook Yoon # add your name
-author-img: david-freeman.jpg # add your photo
-about-author: Marco. 백엔드 개발자. 편식하지 않는. 근성장이 더 필요한. # add description
-social-twitter: # add your Twitter handle
-social-facebook: # add your Facebook handle
-social-github: yvvyoon # add your Github handle
-social-linkedin: # add your Linkedin handle
-social-email: # add your Email address
-social-instagram: yvv.y_
+# Site settings
+title: "Mediator"
+description: > # this means to ignore newlines until "email:"
+   A Jekyll theme - Medium inspired
 
-# Disqus
-discus-identifier: mr-brown # add your discus identifier
+email: a-mail@mail.mail
+#blog logo
+logo: "/assets/images/df_logo.jpg"
+float_logo: true # true, false (default)
 
-# Tracker
-analytics: # Google Analytics
+# blog cover
+cover: "/assets/images/cA4aKEIPQrerBnp1yGHv_IMG_9534-3-2.jpg"
 
-# Build Settings
-markdown: kramdown
-plugins:
-    - jekyll-sitemap
-    - jekyll-paginate
-    - jemoji
+name: 'Dirk Fabisch'
+author: 'Dirk Fabisch'
+author_image: "/assets/images/author.jpg"
 
-paginate: 8
-paginate_path: '/page/:num'
+paginate:	5
 
-exclude: ['node_modules', 'gulpfile.js', 'package.json', 'yarn.lock']
+url: "http://myblog.***.***" # the base hostname & protocol for your site
+baseurl: ""
+#used to display twitter cards
+twitter_handle: '@dirkfabisch'
+
+#fill in disqus shortname to use disqus
+#disqus: disqus-shortname
+
+#google_analytics: UA-XXXXX-X
+
+# social icons and sharing options
+social:
+  - icon:	twitter
+    url:	https://twitter.com/dirkfabisch
+    desc: Follow me on twitter
+    share_url: http://twitter.com/share
+    share_title: ?text=
+    share_link: "&amp;url="
+
+#  - icon:	facebook
+#    url:	https://facebook.com/???
+#    desc: Connect with me facebook
+#    share_url: https://www.facebook.com/sharer.php
+#    share_title: ?t=
+#    share_link: "&amp;u="
+
+  - icon:	github
+    url:	https://github.com/dirkfabisch
+    desc:	Fork me on github
+    share_url:
+    share_title:
+    share_link:
+
+#  - icon:	google-plus
+#    url:	https://google.com/???
+#    desc:	Add me on google+
+#    share_url:
+#    share_title:
+#    share_link:
