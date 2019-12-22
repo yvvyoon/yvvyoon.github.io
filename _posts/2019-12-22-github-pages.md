@@ -12,7 +12,11 @@ categories: Essay
 
 <br>
 
+- 참고
+
 > _https://github.com/mmistakes/minimal-mistakes_
+>
+> *https://dreamgonfly.github.io/2018/01/27/jekyll-remote-theme.html*
 
 <br>
 
@@ -96,3 +100,13 @@ categories: jekyll update
 ### 블로그 테스트
 
 이제 커밋하고 `https://yvvyoon.github.io`로 접속해 테스트해보자.
+
+<img width="1440" alt="스크린샷 2019-12-22 오후 4 38 17" src="https://user-images.githubusercontent.com/12066892/71318821-7654e600-24d9-11ea-9003-ccd8add4ade5.png">
+
+<br>
+
+오!!! 신기하다. 그런데 제목 저 파란 하이퍼링크 너무 거슬린다. 미러 서버 사이트같아...
+
+일단 잘 올라간 것 확인했으니 디테일한 디자인은 서서히 고쳐 나가야겠다.
+
+끗.
