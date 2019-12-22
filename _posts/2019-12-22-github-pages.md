@@ -1,10 +1,8 @@
 ---
-title: 'Welcome to Jekyll!'
+title: 'GitHub Pages 제작기'
 date: 2019-12-22 16:26:00 -0400
-categories: jekyll update
+categories: Essay
 ---
-
-## GitHub Pages 제작기
 
 미루고 미루다가 드디어 블로그를 만들어보려고 한다. 항상 GitHub 1일 0.5커밋(?)을 유지하기 위해 노력은 했다만 점점 사용하다보니 소스코드를 남기기보다는 에세이 성격을 뿜뿜하고 있는 것 같아서 GitHub에서의 제약을 느끼고 있다. 항상 모든 내용을 README에 올려놓을 순 없으니...
 
@@ -89,7 +87,12 @@ categories: jekyll update
 
 <br>
 
+<img width="778" alt="스크린샷 2019-12-22 오후 4 31 26" src="https://user-images.githubusercontent.com/12066892/71318752-81f3dd00-24d8-11ea-9626-bf08df604029.png">
+
+실제로 블로그 화면에 보이는 제목 같은 메타데이터였구나.
+
+<br>
+
 ### 블로그 테스트
 
 이제 커밋하고 `https://yvvyoon.github.io`로 접속해 테스트해보자.
-
