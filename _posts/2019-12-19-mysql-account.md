@@ -41,5 +41,5 @@ mysql> GRANT ALL PRIVILEGES ON djboard.* TO 'yoon'@'localhost' IDENTIFIED BY 'yo
 
 MySQL을 docker 컨테이너로 사용하려고 세팅하려니 위 grant문이 먹히지 않았다. 아래 커맨드로 하니 정상적으로 부여된다.
 
-mysql> GRANT ALL PRIVILEGES TO djboard.* TO 'yoon'@'localhost' WITH GRANT OPTION;
+mysql> GRANT ALL PRIVILEGES ON djboard.* TO 'yoon'@'localhost' WITH GRANT OPTION;
 ```
