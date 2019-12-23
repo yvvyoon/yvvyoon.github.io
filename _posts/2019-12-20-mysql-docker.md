@@ -5,6 +5,7 @@ categories: Docker
 ---
 
 ## Dockerize MySQL
+<br>
 
 이전에 매번 MySQL 계정 및 데이터베이스 설정하는 게 귀찮아 Github에 올렸던 적이 있다. 이제 데이터 쌓는 것까지 너무 귀찮아서 데이터까지 통째로 포함하여 Docker 컨테이너를 pull/push하려고 한다.
 
@@ -86,12 +87,10 @@ $ docker inspect mysql-db -f "{{json. NetworkSettings.Networks}}"
 
 예쁘지 않다. 아프다. 눈이.
 
-<br>
 
 ```
 $ docker inspect mysql-db -f "{{json. NetworkSettings.Networks}}" | json_pp
 ```
-
 ```json
 {
 	"bridge": {
@@ -112,17 +111,32 @@ $ docker inspect mysql-db -f "{{json. NetworkSettings.Networks}}" | json_pp
 }
 ```
 
-<br>
-
-위의 IP로 MySQL 컨테이너에 접속을 테스트해봤는데 실패했다. Flask에서 migrate도 먹히질 않는다. 왜지. 방화벽인가. 인바운드 때문인가.
-
-<br>
+`bridge` 네트워크 상에서 구동되고 있는 모든 컨테이너들의 네트워크 정보를 조회하는 커맨드이다.
 
 ```
 $ docker network inspect bridge -f "{{json .Containers}}" | json_pp
 ```
+```json
+{
+   "b60f020034cbb7675e4c28007f5722a6389c7fe6c4fac1a3555be02b812d3f81" : {
+      "Name" : "mysql-db",
+      "MacAddress" : "02:42:ac:11:00:02",
+      "EndpointID" : "6ee2ffd48893a047c9f68f962e1c7792b85eb3d364b7045c828edd72be121533",
+      "IPv6Address" : "",
+      "IPv4Address" : "172.17.0.2/16"
+   }
+}
+```
 
-<br>
+위의 IP로 MySQL 컨테이너에 접속을 테스트해봤는데 실패했다. Flask에서 migrate도 먹히질 않는다. 왜지. 방화벽인가. 인바운드 때문인가. 컨테이너를 생성할 때마다 초기 CIDR 설정에 의해 자동으로 할당되는 IP 때문인 것 같은데 정확한 원인은 알아봐야겠다.
+
+DB 접속 정보를 `localhost`에서 `127.0.0.1`로 바꿔서 IP 주소를 명시해줬더니 신기하게도 접속이 된다. `localhost`로 접속했하는 경우 MySQL이 포트 번호를 무시해버린다. 관련 내용을 좀 알아보았다.
+
+> _On Unix, MySQL programs treat the host name localhost specially, in a way that is likely different from what you expect compared to other network-based programs. For connections to localhost, MySQL programs attempt to connect to the local server by using a Unix socket file. This occurs even if a --port or -P option is given to specify a port number. To ensure that the client makes a TCP/IP connection to the local server, use --host or -h to specify a host name value of 127.0.0.1, or the IP address or name of the local server. You can also specify the connection protocol explicitly, even for localhost, by using the --protocol=TCP option._
+
+위 내용은 MySQL 공식 문서 내용 일부를 발췌한 것이다.
+
+Unix에서의 MySQL은 `localhost`를 우리가 일반적으로 알고 있는 것과 다른 방식으로 접속한다. `TCP/IP` 방식으로 접속하지 않고 `소켓` 방식으로 연결하는데 `--port`, `-p` 옵션으로 포트 번호를 지정해도 `localhost`라는 호스트 이름은 무시된다. TCP/IP 방식으로 연결하려면 `--host`, `-h` 옵션 뒤에 `127.0.0.1` 또는 IP 주소를 명시해줘야 한다. `localhost` 사용이 불가능한 것은 아니다. `--protocol=localhost`라고 명시해주면 되긴 하는데, 앞으로 혹시 모를 또다른 충돌을 미연에 방지하기 위해 `localhost` 대신 `127.0.0.1`로 설정하는 습관을 들여야겠다.
 
 ### Volume
 
@@ -167,7 +181,7 @@ docker-compose.yml에 설정해보기 전에 `-v` 옵션으로 볼륨을 지정�
 <br>
 
 ```
-docker run --name mysql-db -p 3306:3306 -d \
+$ docker run --name mysql-db -p 3306:3306 -d \
 -e MYSQL_ROOT_PASSWORD=root \
 -e MYSQL_USER=yoon \
 -e MYSQL_PASSWORD=yoon \
