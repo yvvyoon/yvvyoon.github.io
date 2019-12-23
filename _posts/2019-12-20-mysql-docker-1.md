@@ -52,7 +52,7 @@ $ docker run --name mysql-db -p 3306:3306 -d \
 -e MYSQL_USER=yoon \
 -e MYSQL_PASSWORD=yoon \
 -e MYSQL_DATABASE=flaboard \
--d mysql
+-d mysql-db-custom
 ```
 
 <br>
