@@ -1,10 +1,10 @@
 ---
-title: 'Dockernize MySQL'
+title: 'Dockerize MySQL'
 date: 2019-12-20 18:00:00 -0400
 categories: Docker
 ---
 
-## Dockernize MySQL
+## Dockerize MySQL
 
 이전에 매번 MySQL 계정 및 데이터베이스 설정하는 게 귀찮아 Github에 올렸던 적이 있다. 이제 데이터 쌓는 것까지 너무 귀찮아서 데이터까지 통째로 포함하여 Docker 컨테이너를 pull/push하려고 한다.
 
@@ -162,7 +162,7 @@ docker-compose.yml에 설정해보기 전에 `-v` 옵션으로 볼륨을 지정�
 
 > _참고:_
 >
-> ​ _https://medium.com/@crmcmullen/how-to-run-mysql-in-a-docker-container-on-macos-with-persistent-local-data-58b89aec496a_
+>  _https://medium.com/@crmcmullen/how-to-run-mysql-in-a-docker-container-on-macos-with-persistent-local-data-58b89aec496a_
 
 <br>
 
