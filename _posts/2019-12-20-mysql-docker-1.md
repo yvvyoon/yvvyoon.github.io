@@ -52,7 +52,7 @@ $ docker run --name mysql-db -p 3306:3306 -d \
 -e MYSQL_USER=yoon \
 -e MYSQL_PASSWORD=yoon \
 -e MYSQL_DATABASE=flaboard \
--d mysql-db-custom
+-d yoon4480/mysql-db-custom:0.1
 ```
 
 <br>
@@ -92,7 +92,7 @@ $ docker inspect mysql-db -f "{{json. NetworkSettings.Networks}}"
 $ docker inspect mysql-db -f "{{json. NetworkSettings.Networks}}" | json_pp
 ```
 ```json
-{
+{                                                     
 	"bridge": {
 		"Links": null,
 		"IPAddress": "172.17.0.2",
