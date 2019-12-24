@@ -16,9 +16,9 @@ Flask 컨테이너에서 MySQL 컨테이너로 붙질 않는다. 아래 에러 �
 
 <br>
 
-> _<참고>_
+> *<참고>*
 >
-> _https://mysqlserverteam.com/mysql-8-0-4-new-default-authentication-plugin-caching_sha2_password/_
+> *https://mysqlserverteam.com/mysql-8-0-4-new-default-authentication-plugin-caching_sha2_password/*
 
 <br>
 
