@@ -4,9 +4,9 @@ date: 2019-12-08 18:48:00
 categories: Python
 ---
 
-파이썬 웹 프레임워크인 Django, Flask를 공부하면서 정작 기반이 되는 파이썬 언어 자체의 기본에 대해 취약하다. Django 프로젝트의 CBV와 테스트 코드 작성을 진행하면서 자주 등장했던 `@classmethod` 데코레이터가 무슨 역할을 하는지 궁금해졌다. 이 데코레이터를 알기 위해선 파이썬 클래스의 개념부터 잘 알아야 한다. 시작해보자.
+파이썬 웹 프레임워크인 Django, Flask를 공부하면서 정작 기반이 되는 파이썬 언어 자체의 기본에 대해 취약하다. Django 프로젝트의 CBV와 테스트 코드 작성을 진행하면서 자주 등장했던 `@classmethod` 데코레이터가 무슨 역할을 하는지 궁금해졌다. 이 데코레이터를 알기 위해선 파이썬 클래스의 개념부터 잘 알아야 한다.
 
-
+시작해보자.
 
 
 
@@ -14,13 +14,11 @@ categories: Python
 
 파이썬에서 클래스 생성은 여타 언어와 다르게 `new` 키워드를 사용하지 않는다.
 
-기본적으로 `SnakeCase`를 사용하는 변수와 함수와 달리 클래스의 네이밍컨벤션은 `CamelCase`를 사용한다.
-
-
-
-- airtravel.py
+기본적으로 `SnakeCase`를 사용하는 변수와 함수와 달리 클래스의 네이밍컨벤션은 `CamelCase`를 사용한다.  
 
 ```python
+# airtravel.py
+
 class Flight:
     def __init__(self):
         print('init')

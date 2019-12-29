@@ -20,7 +20,7 @@ name: 'Young-wook Yoon, Marco'
 author: 'Young-wook Yoon, Marco'
 author_image: '/assets/images/IMG_1982.jpg'
 
-paginate: 5
+paginate: 10
 
 url: 'https://yvvyoon.github.io' # the base hostname & protocol for your site
 baseurl: ''
