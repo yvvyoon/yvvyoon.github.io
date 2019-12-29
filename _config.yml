@@ -19,8 +19,8 @@ locale: 'ko-KR'
 title: 'marco;log'
 title_separator: '-'
 subtitle: # site tagline that appears below site title in masthead
-name: 'Your Name'
-description: 'An amazing website.'
+name: 'Young-wook, Yoon'
+description: 'marco;log'
 url: # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl: # the subpath of your site, e.g. "/blog"
 repository: # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -107,7 +107,7 @@ analytics:
 # Site Author
 author:
     name: 'Marco'
-    avatar: # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+    avatar: '/assets/images/IMG_1982.jpg'
     bio: '**백엔드** 개발자. 아직 인큐베이터.'
     location: 'Seoul, South Korea'
     email:
