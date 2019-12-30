@@ -1,5 +1,5 @@
 ---
-title: 'Docker 컨테이너 orchestration (1) Swarm'
+title: '컨테이너 orchestration (1) Swarm'
 date: 2019-12-27 18:48:00
 categories: Docker
 ---
@@ -9,21 +9,13 @@ categories: Docker
 이와 같은 컨테이너 orchestration을 사용하려는 궁극적인 목적은 떨어져 있는 Docker 호스트에서 구동되고 있는 컨테이너들을 연결하려는데에 있다. 대표적인 orchestration 툴로는 Docker의 빌트인 기능인 `Swarm`, 구글에서 개발하여 최근에 굉장히 각광받고 있고 Docker 측에서도 공식적으로 채택하여 가이드 문서까지 제공하고 있는 `Kubernetes`, 빅데이터 환경의 대규모 클러스터링을 제공하는 아파치 재단의 `Mesos` 등이 있다.   
 Swarm과 Kubernetes에 대해서만 간단히 학습해볼 것이고, Docker 빌트인 툴인 Swarm부터 시작해보자. 각 공식 문서를 바탕으로 개인적인 견해를 섞어서 작성하도록 하겠다.
 
-
-
-
-
 ## Swarm
 
 `Swarm`은 `Smartkit`이라는 Docker orchestration을 담당하는 별도의 프로젝트를 통해 빌드되어 Docker 엔진에 내장된 클러스터 관리 및 orchestration 툴이다. `manager` 노드와 `worker` 노드 역할을 하는 다중 Docker 호스트로 구성된다. 동일한 이미지로부터의 컨테이너 수, 네트워크와 스토리지 리소스, 포트 등의 설정하여 최적의 서비스를 생성한다. 독립적인 컨테이너가 아닌 manager 노드가 관리하고 swarm 서비스의 일부분으로서의 컨테이너인 태스크의 스케줄링을 담당하기도 한다. 
 
-
-
-
-
 ### Swarm 특징
 
-각 특징 제목에 대해 명확하게 번역할 말이 떠오르질 않아서 원문 그대로 사용했다. :). 
+각 특징 제목에 대해 명확하게 번역할 말이 떠오르질 않아서 원문 그대로 사용했다. :)
 
 >  - **Cluster management integrated with Docker Engine:** Swarm을 사용하기 위한 별도의 orchestration 툴 필요없이 Docker 엔진의 CLI만으로도 생성 및 관리가 가능하다.
 >
@@ -37,41 +29,21 @@ Swarm과 Kubernetes에 대해서만 간단히 학습해볼 것이고, Docker 빌
 >  - **Secure by default:** 각 노드들은 안전한 통신을 위해 TLS 상호 인증 방식과 암호화 방식을 사용한다. Self-signed 인증서 또는 Root CA 인증서 중 선택해서 인증을 수행할 수 있다.
 >  - **Rolling updates:** 서비스 출시 시점에 점진적으로 서비스를 업데이트할 수 있다. manager 노드가 서로 다른 노드 그룹들의 서비스 배포 간 딜레이를 컨트롤하는 역할을 한다. 비정상적인 상황이 발생하면 이전 버전으로 rollback할 수 있다.
 
-
-
-
-
 ### Swarm 핵심 개념
 
 특징들로 보아 `docker-compose.yml` 파일로 여러 컨테이너들을 조합하여 마치 단일 컨테이너인 것처럼 배포하는 방식과 유사한 것 같다. Swarm의 4개의 핵심 개념을 살펴보자.
-
-
-
-
 
 #### 노드
 
 **노드(Node)**란 Swarm 클러스터에 참여한 Docker 엔진의 인스턴스를 말한다. Swarm 클러스터에 배포하기 위해 서비스에 대한 정의를 제출할 manager 노드와 manager 노드에 의해 각 태스크를 할당받는 worker 노드가 있다.
 
-
-
-
-
 #### 서비스
 
 Swarm에서 **서비스(Service)**는 각 노드가 수행할 태스크에 대한 정의를 뜻한다. 컨테이너의 기반 이미지를 정하거나 컨테이너 실행 시점의 커맨드를 설정하는 역할을 맡는다. `docker-compose.yml` 파일과 유사하다.
 
-
-
-
-
 #### 태스크
 
 **태스크(Task)**는 Swarm 클러스터 내에서의 가장 작은 작업 단위로서 위에서 언급했듯이 worker 노드가 manager 노드로부터 할당받는다. 한번 할당된 태스크는 다른 노드로 이동할 수 없고, 오로지 수행하거나 실패하거나로 나뉜다. 
-
-
-
-
 
 #### 로드 밸런싱
 
@@ -79,17 +51,9 @@ Swarm 클러스터는 내부적으로 `Ingress 로드 밸런싱`을 사용하고
 
 내부에 DNS 컴포넌트도 가지고 있기 때문에 각 서비스에 DNS도 자동으로 할당해준다.
 
-
-
-
-
 ### CLI 커맨드
 
 커맨드 아래에 달아놓은 설명이 무안할만큼 굉장히 직관적인 커맨드들을 제공하고 있다.
-
-
-
-
 
 #### swarm init
 
@@ -99,10 +63,6 @@ Swarm 클러스터를 초기화한다. 이 커맨드가 수행되고 나면 `친
 $ docker swarm init [OPTIONS]
 ```
 
-
-
-
-
 #### swarm join
 
 manager 노드 또는 worker 노드로서 Swarm 클러스터에 참여하는 커맨드이다.
@@ -111,19 +71,11 @@ manager 노드 또는 worker 노드로서 Swarm 클러스터에 참여하는 커
 $ docker swarm join [OPTIONS] HOST:PORT
 ```
 
-
-
-
-
 새로운 서비스를 생성하는 커맨드이다.
 
 ```
 $ docker service create [OPTIONS] IMAGE [COMMAND] [ARG...]
 ```
-
-
-
-
 
 #### service inspect
 
@@ -133,10 +85,6 @@ $ docker service create [OPTIONS] IMAGE [COMMAND] [ARG...]
 $ docker service inspect [OPTIONS] SERVICE [SERVICE...]
 ```
 
-
-
-
-
 #### service ls
 
 생성된 서비스들의 목록을 출력한다.
@@ -144,10 +92,6 @@ $ docker service inspect [OPTIONS] SERVICE [SERVICE...]
 ```
 $ docker service ls [OPTIONS]
 ```
-
-
-
-
 
 #### service rm
 
@@ -157,10 +101,6 @@ $ docker service ls [OPTIONS]
 $ docker service rm SERVICE [SERVICE...]
 ```
 
-
-
-
-
 #### service scale
 
 특정 서비스에 대해 원하는 수만큼 복제 서비스를 확장하며 축소시킬 수도 있다.
@@ -168,10 +108,6 @@ $ docker service rm SERVICE [SERVICE...]
 ```
 $ docker service scale SERVICE=REPLICAS [SERVICE=REPLICAS...]
 ```
-
-
-
-
 
 #### service ps
 
@@ -181,10 +117,6 @@ $ docker service scale SERVICE=REPLICAS [SERVICE=REPLICAS...]
 $ docker service ps [OPTIONS] SERVICE [SERVICE...]
 ```
 
-
-
-
-
 #### service update
 
 생성된 서비스에 변경이 필요할 경우 실행하는 커맨드이다. `service create` 커맨드에 사용되는 파라미터와 동일한 파라미터를 사용한다.
@@ -192,10 +124,6 @@ $ docker service ps [OPTIONS] SERVICE [SERVICE...]
 ```
 $ docker service update [OPTIONS] SERVICE
 ```
-
-
-
-
 
 ### Swarm 구동 확인
 
@@ -215,10 +143,6 @@ To add a manager to this swarm, run 'docker swarm join-token manager' and follow
 
 컨테이너들을 연결하기 위해 `YAML` 스택 파일을 하나 만들어보자.
 
-
-
-
-
 ```yaml
 version: '3.7'
 
@@ -228,10 +152,6 @@ services:
       ports:
         - "5000:5000"
 ```
-
-
-
-
 
 `services`라는 단위의 객체에 조합할 각 컨테이너들을 명시해준다. 컨테이너의 이름, 사용할 이미지, 포트 등을 설정한다.
 
