@@ -1,5 +1,5 @@
 ---
-ㅇtitle: '컨테이너 orchestration (2) Kubernetes'
+title: '컨테이너 orchestration (2) Kubernetes'
 date: 2019-12-30 18:48:00
 categories: Kubernetes
 ---
