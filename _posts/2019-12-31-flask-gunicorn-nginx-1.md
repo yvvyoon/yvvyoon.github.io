@@ -1,6 +1,6 @@
 ---
 title: 'Flask + Gunicorn + Nginx (1) Nginx 서버'
-date: 2019-12-31 17:00:00 -0400
+date: 2019-12-31 15:55:00 -0400
 categories: Flask
 ---
 
@@ -12,11 +12,13 @@ categories: Flask
 
 8000번 포트로 구동되고 의존성이 없으며, Nginx는 일반적으로 리버스 프록시 서버로 사용된다. 
 
-- Paster, Django, WSGI와 사용
-- 워커 프로세스 관리 자동화
-- 파이썬 설정 쉬움
-- 여러 워커 설정 사용 가능
-- 서버 hook의 다양성
+- *Paster, Django, WSGI와 함께 사용*
+- *워커 프로세스 관리 자동화*
+- *파이썬 설정 쉬움*
+- *여러 워커 설정 사용 가능*
+- *서버 hook의 다양성*
+
+
 
 동기적인 워커들은 Nginx 뒤에서 실행되도록 빌드되었고, Nginx 업스트림 서버는 HTTP/1.0.만을 사용한다.
 
@@ -76,6 +78,8 @@ Available applications:
   OpenSSH
 ```
 
+
+
 - **Nginx Full:** 80번 포트와 443번 포트를 둘 다 연다.
 - **Nginx HTTP:** 80번 포트만 연다.
 - **Nginx HTTPS:** 443번 포트만 연다.
@@ -91,6 +95,8 @@ Rules updated
 Rules updated (v6)
 ```
 
+
+
 잘 열려 있는지 아래 커맨드로 확인할 수 있는데 아직 비활성화 상태이다.
 
 ```
@@ -98,6 +104,8 @@ $ sudo ufw status
 
 Status: inactive
 ```
+
+
 
 찾아보니 ufw가 아직 enable로 활성화를 시키지 않아서 그런 것이었다. ㅎㅎ
 
@@ -107,6 +115,8 @@ $ sudo ufw enable
 Command may disrupt existing ssh connections. Proceed with operation (y|n)?
 Firewall is active and enabled on system startup
 ```
+
+
 
 다시 상태를 조회해보면 아까 허용했던 80번 포트가 추가되어있는 것을 확인할 수 있다.
 
@@ -120,6 +130,8 @@ To                         Action      From
 Nginx HTTP                 ALLOW       Anywhere
 Nginx HTTP (v6)            ALLOW       Anywhere (v6)
 ```
+
+
 
 포트도 허용했고 Nginx 서버가 잘 돌아가고 있는지 `systemctl` 커맨드로 확인하자.
 
@@ -139,9 +151,13 @@ $ systemctl status nginx
 ...
 ```
 
+
+
 위 방법으로도 확인이 가능하지만 직접 서버 IP로 접속하여 아래처럼 Nginx 기본 페이지가 잘 뜨는지 확인하는 것이 사실 제일 정확하다고 할 수 있다.
 
 <img width="569" alt="image" src="https://user-images.githubusercontent.com/12066892/71608668-328f6a00-2bc6-11ea-940c-f9db8a34a88f.png">
+
+
 
 위에서 ufw를 활성화하면서 ssh 접속이 끊어질 수 있다는 메시지에 y라고 응답했었다. 당시에는 아무 이상이 없었으나 점심먹고 와서 당연하게 끊어진 EC2를 다시 접속해보니 ssh 타임아웃 에러가 나면서 접속이 되지 않는다. 인스턴스 재부팅도 안 먹고, 인바운드 재설정도 먹지 않는다.
 
