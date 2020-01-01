@@ -108,7 +108,7 @@ analytics:
 author:
     name: 'Marco'
     avatar: '/assets/images/IMG_1982.jpg'
-    bio: '**백엔드** 개발자. 아직 인큐베이터.'
+    bio: '**백엔드** 개발자.\n아직 인큐베이터.'
     location: 'Seoul, South Korea'
     email:
     links:
