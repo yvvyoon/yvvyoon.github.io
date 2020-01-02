@@ -21,9 +21,9 @@ categories: SEO
     - 선수 페이지**(squads.arsenal.com)**
     - 기사 페이지**(news.arsenal.com)**
 - Subfolder 방식
-- 메인 페이지**(arsenal.com)**
+    - 메인 페이지**(arsenal.com)**
     - 일정 페이지**(arsenal.com/fixtures)**
-- 선수 페이지**(arsenal.com/squads)**
+    - 선수 페이지**(arsenal.com/squads)**
     - 기사 페이지**(arsenal.com/news)**
 
 위 목록의 각 주소에서 알 수 있듯이 Subdomain 방식은 웹페이지들을 각각 독립된 도메인으로 관리하고, Subfolder 방식은 하위 도메인으로 확장시켜 웹페이지들을 관리하는 방식이다.
